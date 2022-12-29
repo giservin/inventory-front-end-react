@@ -3,8 +3,7 @@ LABEL stage=builder
 RUN mkdir /app
 WORKDIR /app
 COPY . .
-RUN apk add xargs && \
-    export $(grep -v '^#' .env.example | xargs -d '\n')
+RUN export $(grep -v '^#' .env.example | xargs -d '\n')
 RUN npm install
 RUN npm run build
 
