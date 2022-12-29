@@ -11,9 +11,8 @@ pipeline {
     stages {
         stage("Build Image") {
             agent {
-                docker {
-                    image 'docker:dind'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock'
+                node {
+                    label 'agent-one'
                 }
             }
             steps {
