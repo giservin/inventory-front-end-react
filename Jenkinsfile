@@ -40,12 +40,7 @@ pipeline {
     }
     post {
         failure {
-            agent {
-                node {
-                    label "agent-one"
-                }
-            }
-            steps {
+            node('agent-one') {
                 sh "docker image prune -f"
             }
         }
