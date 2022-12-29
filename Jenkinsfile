@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         IMAGE_NAME = "giservintz/fe-inventory-react"
-        IMAGE_TAG = "1.0.0-test"
+        IMAGE_TAG = "1.0.0"
         CONTAINER_NAME = "fe_react"
     }
     stages {
@@ -24,6 +24,7 @@ pipeline {
                         sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                         sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
                     }
+                sh "docker image prune --filter label=stage=builder"
             }
         }
         stage("Deploy Container") {
@@ -34,6 +35,18 @@ pipeline {
             }
             steps {
                 sh "docker run -d -p 80:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}:${IMAGE_TAG}"
+            }
+        }
+    }
+    post {
+        failure {
+            agent {
+                node {
+                    label "agent-one"
+                }
+            }
+            steps {
+                sh "docker image prune -f"
             }
         }
     }
