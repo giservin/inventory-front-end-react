@@ -6,6 +6,7 @@ COPY . .
 RUN mv .env.example .env
 RUN npm install
 # RUN npm run build
+EXPOSE 3000
 CMD ["npm", "start"]
 
 # FROM nginx:alpine AS server
