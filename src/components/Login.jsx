@@ -10,9 +10,9 @@ const Login = () => {
     const navigate = useNavigate();
     const { user, isError, isSuccess, isLoading, message } = useSelector((state) => state.auth);
 
-    useEffect(() => {
-        dispatch(getMe());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(getMe());
+    // }, [dispatch]);
     
     useEffect(() => {
         if(user || isSuccess){
