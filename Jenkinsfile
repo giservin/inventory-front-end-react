@@ -34,8 +34,8 @@ pipeline {
                 }
             }
             steps {
-                sh "docker stop $(docker ps -aq)"
-                sh "docker rm $(docker ps -aq)"
+                sh 'docker stop $(docker ps -aq)'
+                sh 'docker rm $(docker ps -aq)'
                 sh "docker run -d -p 80:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
