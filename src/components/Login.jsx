@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; //untuk redirect
-import { LoginUser, reset } from "../features/authSlice";
+import { LoginUser, getMe, reset } from "../features/authSlice";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -9,10 +9,6 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { user, isError, isSuccess, isLoading, message } = useSelector((state) => state.auth);
-
-    // useEffect(() => {
-    //     dispatch(getMe());
-    // }, [dispatch]);
     
     useEffect(() => {
         if(user || isSuccess){
