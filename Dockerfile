@@ -5,9 +5,10 @@ WORKDIR /app
 COPY . .
 RUN mv .env.example .env
 RUN npm install
-RUN npm run build
+# RUN npm run build
+CMD ["npm", "start"]
 
-FROM nginx:alpine AS server
-RUN rm -rf /usr/share/nginx/html/*
-COPY --from=builder /app/build /usr/share/nginx/html
-CMD ["nginx", "-g", "daemon off;"]
+# FROM nginx:alpine AS server
+# RUN rm -rf /usr/share/nginx/html/*
+# COPY --from=builder /app/build /usr/share/nginx/html
+# CMD ["nginx", "-g", "daemon off;"]
