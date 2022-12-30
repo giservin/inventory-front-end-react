@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'; //untuk redirect
-import { LoginUser, getMe, reset } from "../features/authSlice";
+import { LoginUser, reset } from "../features/authSlice";
 
 const Login = () => {
     const [email, setEmail] = useState("");

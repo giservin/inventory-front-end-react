@@ -19,7 +19,7 @@ const FormAddUser = () => {
   const saveUser = async (e) => {
     e.preventDefault();
     try {
-        await axios.post(`${process.env.API_URL}:${process.env.API_PORT}/users`, {
+        await axios.post(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/users`, {
             name,
             email,
             password,

@@ -11,7 +11,7 @@ const FormAddProduct = () => {
   const saveProduct = async (e) => {
     e.preventDefault();
     try {
-        await axios.post(`${process.env.API_URL}:${process.env.API_PORT}/products`, {
+        await axios.post(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/products`, {
             name,
             price
         });

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-react
+  labels:
+    name: frontend-react
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: frontend-react
+  template:
+    metadata:
+      name: frontend-react
+      labels:
+        name: frontend-react
+    spec:
+      containers:
+        - name: frontend-react
+          image: giservintz/fe-inventory-react:1.0.0
+          ports:
+            - containerPort: 80
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactsvc
+spec:
+  type: NodePort
+  selector:
+    name: frontend-react
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30001

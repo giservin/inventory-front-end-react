@@ -24,7 +24,7 @@ pipeline {
                         sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                         sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
                     }
-                sh "docker image prune --filter label=stage=builder"
+                sh "docker image prune --filter label=stage=builder -f"
             }
         }
         stage("Deploy Container") {

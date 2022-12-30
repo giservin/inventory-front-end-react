@@ -11,7 +11,7 @@ const initialState = {
 
 export const LoginUser = createAsyncThunk("user/loginUser", async (user, thunkAPI) => {
     try {
-        const response = await axios.post(`${process.env.API_URL}:${process.env.API_PORT}/login`, {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/login`, {
             email: user.email,
             password: user.password
         });
@@ -26,7 +26,7 @@ export const LoginUser = createAsyncThunk("user/loginUser", async (user, thunkAP
 
 export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
     try {
-        const response = await axios.get(`${process.env.API_URL}:${process.env.API_PORT}/me`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/me`);
         return response.data;
     } catch (err) {
         if(err.response) {

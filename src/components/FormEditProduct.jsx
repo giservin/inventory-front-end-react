@@ -13,7 +13,7 @@ const FormEditProduct = () => {
   useEffect(() => {
     const getProductById = async () => {
         try {
-            const response = await axios.get(`${process.env.API_URL}:${process.env.API_PORT}/products/${id}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/products/${id}`);
             setName(response.data.name);
             setPrice(response.data.price);
         } catch(err) {
@@ -28,7 +28,7 @@ const FormEditProduct = () => {
   const updateProduct = async (e) => {
     e.preventDefault();
     try {
-        await axios.patch(`${process.env.API_URL}:${process.env.API_PORT}/products/${id}`, {
+        await axios.patch(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/products/${id}`, {
             name,
             price
         });

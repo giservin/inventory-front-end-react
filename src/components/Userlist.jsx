@@ -10,12 +10,12 @@ const Userlist = () => {
   }, []);
 
   const getUsers = async () => {
-    const response = await axios.get(`${process.env.API_URL}:${process.env.API_PORT}/users`);
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/users`);
     setUsers(response.data);
   }
 
   const deleteUsers = async (userId) => {
-    await axios.delete(`${process.env.API_URL}:${process.env.API_PORT}/users/${userId}`);
+    await axios.delete(`${process.env.REACT_APP_API_URL}:${process.env.REACT_APP_API_PORT}/users/${userId}`);
     getUsers();
   }
   return (
