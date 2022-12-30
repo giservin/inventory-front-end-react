@@ -3,7 +3,7 @@ LABEL stage=builder
 RUN mkdir /app
 WORKDIR /app
 COPY . .
-RUN export $(grep -v '^#' .env.example | xargs -d '\n')
+RUN cat .env.example > .env
 RUN npm install
 RUN npm run build
 
