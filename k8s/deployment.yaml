@@ -5,7 +5,7 @@ metadata:
   labels:
     name: frontend-react
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       name: frontend-react
