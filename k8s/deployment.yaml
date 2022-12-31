@@ -28,6 +28,10 @@ kind: Service
 metadata:
   name: reactsvc
 spec:
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 3600
   type: LoadBalancer
   selector:
     name: frontend-react
