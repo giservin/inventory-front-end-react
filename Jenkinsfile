@@ -36,6 +36,7 @@ pipeline {
             steps {
                 sh 'kubectl delete deployment frontend-react'
                 sh 'kubectl apply -f k8s/deployment.yaml'
+                sh 'kubectl get svc'
             }
         }
     }

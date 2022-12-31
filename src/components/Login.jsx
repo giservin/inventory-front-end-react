@@ -33,7 +33,7 @@ const Login = () => {
                         <form onSubmit={Auth} className='box'>
                             {isError && <p className="has-text-centered has-text-danger">{message}</p>}
                             <div className="field">
-                                <h1 className='title is-2'>Sign in</h1>
+                                <h1 className='title is-2'>Log in</h1>
                                 <label className="label">Email</label>
                                 <div className="control">
                                     <input type="email" className="input" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
