@@ -27,16 +27,15 @@ pipeline {
                 sh "docker image prune --filter label=stage=builder -f"
             }
         }
-        stage("Deploy Container") {
+        stage("Deploy") {
             agent {
                 node {
                     label "master"
                 }
             }
             steps {
-                sh 'docker stop $(docker ps -aq)'
-                sh 'docker rm $(docker ps -aq)'
-                sh "docker run -d -p 80:80 --name ${CONTAINER_NAME} ${IMAGE_NAME}:${IMAGE_TAG}"
+                sh 'kubectl delete deployment frontend-react'
+                sh 'kubectl apply -f k8s/deployment.yaml'
             }
         }
     }
