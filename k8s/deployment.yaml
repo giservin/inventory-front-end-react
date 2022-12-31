@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend-react
-          image: giservintz/fe-inventory-react:1.0.0
+          image: giservintz/fe-inventory-react:1.0.2
           ports:
             - containerPort: 80
 
@@ -28,10 +28,11 @@ kind: Service
 metadata:
   name: reactsvc
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     name: frontend-react
   ports:
-    - port: 80
+    - protocol: TCP
+      port: 80
       targetPort: 80
       nodePort: 30001
