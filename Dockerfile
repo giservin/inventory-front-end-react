@@ -10,6 +10,7 @@ RUN npm run build
 # CMD ["npm", "start"]
 
 FROM nginx:alpine AS server
+COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=builder /app/build /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
