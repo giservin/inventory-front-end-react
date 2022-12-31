@@ -5,7 +5,7 @@ pipeline {
     }
     environment {
         IMAGE_NAME = "giservintz/fe-inventory-react"
-        IMAGE_TAG = "1.0.2"
+        IMAGE_TAG = "1.0.3"
         CONTAINER_NAME = "fe_react"
     }
     stages {
