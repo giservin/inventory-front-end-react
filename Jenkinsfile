@@ -3,8 +3,8 @@
 k8sPipeline([
     type: "frontend",
     image_name: "giservintz/fe-inventory-react",
-    image_tag: "1.0.5",
-    doBuild: false,
+    image_tag: "1.0.6",
+    doBuild: true,
     dockerCredentials: "docker_login",
     deployment: "frontend-react"
 ])
