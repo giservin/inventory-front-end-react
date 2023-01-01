@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend-react
-          image: giservintz/fe-inventory-react:1.0.6
+          image: giservintz/fe-inventory-react:1.0.7
           ports:
             - containerPort: 80
 
